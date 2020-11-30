@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">ProductGraph</string>
+    <string name="apply">Apply</string>
+    <string name="submit">Submit</string>
+    <string name="highToLow">Hight To Low</string>
+    <string name="lowToHigh">Low to High</string>
+    <string name="filter_by_order">Filter byOrder</string>
+    <string name="review">Review</string>
+</resources>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/product_navigation"
+    android:label="nav_product"
+    app:startDestination="@id/nav_product_list">
+    <fragment
+        android:id="@+id/nav_product_list"
+        android:name="com.arindom.productgraph.ui.productlist.ProductListFragment"
+        android:label="Product List"
+        tools:layout="@layout/fragment_product_list">
+        <action
+            android:id="@+id/action_nav_product_list_to_productDetailsFragment"
+            app:destination="@id/productDetailsFragment">
+            <argument
+                android:name="product"
+                app:argType="com.arindom.productgraph.repository.models.Product" />
+        </action>
+
+        <action
+            android:id="@+id/action_nav_product_list_to_productFilterFragment"
+            app:destination="@id/productFilterFragment" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/productDetailsFragment"
+        android:name="com.arindom.productgraph.ui.ProductDetailsFragment"
+        android:label="Product Details"
+        tools:layout="@layout/fragment_product_details">
+        <action
+            android:id="@+id/action_productDetailsFragment_to_productReviewFragment"
+            app:destination="@id/productReviewFragment">
+            <argument
+                android:name="product"
+                app:argType="com.arindom.productgraph.repository.models.Product" />
+        </action>
+        <argument
+            android:name="product"
+            app:argType="com.arindom.productgraph.repository.models.Product" />
+    </fragment>
+    <fragment
+        android:id="@+id/productFilterFragment"
+        android:name="com.arindom.productgraph.ui.productlist.ProductFilterFragment"
+        android:label="Product Filter"
+        tools:layout="@layout/fragment_product_list_filter">
+        <action
+            android:id="@+id/action_productFilterFragment_to_nav_product_list"
+            app:destination="@id/nav_product_list" />
+    </fragment>
+    <fragment
+        android:id="@+id/productReviewFragment"
+        android:name="com.arindom.productgraph.ui.productreview.ProductReviewFragment"
+        android:label="Product Review"
+        tools:layout="@layout/fragment_product_review">
+        <argument
+            android:name="product"
+            app:argType="com.arindom.productgraph.repository.models.Product" />
+        <action
+            android:id="@+id/action_productReviewFragment_to_productDetailsFragment"
+            app:destination="@id/productDetailsFragment">
+
+        </action>
+    </fragment>
+
+</navigation>

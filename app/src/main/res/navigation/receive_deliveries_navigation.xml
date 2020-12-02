@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/receive_deliveries_navigation"
+    app:startDestination="@id/deliveriesArrivingDepartmentList">
+
+    <fragment
+        android:id="@+id/deliveriesArrivingDepartmentList"
+        android:name="com.arindom.productgraph.ui.department.DeliveriesDepartmentReceiveDepartmentFragment"
+        android:label="DeliveriesArrivingDepartmentList"
+        tools:layout="@layout/fragment_departments" />
+</navigation>

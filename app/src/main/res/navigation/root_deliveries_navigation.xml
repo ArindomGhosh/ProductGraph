@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root_deliveries_navigation"
+    app:startDestination="@id/deliveriesHome">
+
+    <action
+        android:id="@+id/action_global_deliveriesHome"
+        app:destination="@id/deliveriesHome" />
+
+    <fragment
+        android:id="@+id/deliveriesHome"
+        android:name="com.arindom.productgraph.ui.DeliveriesHome"
+        android:label="DeliveriesHome"
+        tools:layout="@layout/fragment_deliveries_home">
+        <action
+            android:id="@+id/action_deliveriesHome_to_deliveriesOpenOrderFlowFragment"
+            app:destination="@id/deliveriesOpenOrderFlowFragment" />
+
+        <action
+            android:id="@+id/action_deliveriesHome_to_deliveriesReceiveOrderFlowFragment"
+            app:destination="@id/deliveriesReceiveOrderFlowFragment" />
+        <action
+            android:id="@+id/action_deliveriesHome_to_navigationOpenDeliveries"
+            app:destination="@id/navigation_open_deliveries" />
+        <action
+            android:id="@+id/action_deliveriesHome_to_navigationReceivingDeliveries"
+            app:destination="@id/navigation_receiving_deliveries" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/deliveriesOpenOrderFlowFragment"
+        android:name="com.arindom.productgraph.ui.DeliveriesOpenOrderNavHostFragment"
+        android:label="DeliveriesOpenOrderFlowFragment"
+        tools:layout="@layout/fragment_open_orders">
+        <action
+            android:id="@+id/action_deliveriesOpenOrderFlowFragment_to_deliveriesHome"
+            app:destination="@id/deliveriesHome" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/deliveriesReceiveOrderFlowFragment"
+        android:name="com.arindom.productgraph.ui.DeliveriesReceiveOrderNavHostFragment"
+        android:label="DeliveriesOpenOrderFlowFragment"
+        tools:layout="@layout/fragment_review_orders">
+        <action
+            android:id="@+id/action_deliveriesReceiveOrderFlowFragment_to_deliveriesHome"
+            app:destination="@id/deliveriesHome" />
+    </fragment>
+
+    <navigation
+        android:id="@+id/navigation_open_deliveries"
+        app:startDestination="@id/open_order_navigation">
+        <include app:graph="@navigation/open_orders_navigation" />
+        <action
+            android:id="@+id/action_navigationOpenDeliveries_to_deliveriesHome"
+            app:destination="@id/deliveriesHome" />
+    </navigation>
+
+    <navigation
+        android:id="@+id/navigation_receiving_deliveries"
+        app:startDestination="@id/receive_deliveries_navigation">
+        <include app:graph="@navigation/receive_deliveries_navigation" />
+        <action
+            android:id="@+id/action_navigationReceivingDeliveries_to_deliveriesHome"
+            app:destination="@id/deliveriesHome" />
+    </navigation>
+</navigation>

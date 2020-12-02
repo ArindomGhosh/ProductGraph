@@ -3,8 +3,9 @@ package com.arindom.productgraph.ui
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.LayoutInflater
-import android.view.MenuItem
 import androidx.appcompat.widget.Toolbar
+import androidx.navigation.findNavController
+import androidx.navigation.ui.NavigationUI
 import com.arindom.productgraph.R
 import com.arindom.productgraph.databinding.ActivityMainBinding
 
@@ -32,10 +33,9 @@ class MainActivity : AppCompatActivity() {
                 it.setDisplayHomeAsUpEnabled(true)
             }
         }
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        onBackPressed()
-        return super.onOptionsItemSelected(item)
+        NavigationUI.setupWithNavController(
+            mBinding.root.findViewById<Toolbar>(R.id.toolbar),
+            findNavController(R.id.fragment_main)
+        )
     }
 }

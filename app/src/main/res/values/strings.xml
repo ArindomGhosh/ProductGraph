@@ -6,4 +6,7 @@
     <string name="lowToHigh">Low to High</string>
     <string name="filter_by_order">Filter byOrder</string>
     <string name="review">Review</string>
+    <string name="openOrders">Open Orders</string>
+    <string name="reviewDeliveries">Review Deliveries</string>
+    <string name="receiveDeliveries">Receive Deliveries</string>
 </resources>

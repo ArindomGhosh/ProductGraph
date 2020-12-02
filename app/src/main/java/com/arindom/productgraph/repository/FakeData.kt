@@ -1,5 +1,6 @@
 package com.arindom.productgraph.repository
 
+import com.arindom.productgraph.repository.models.Department
 import com.arindom.productgraph.repository.models.Product
 import com.arindom.productgraph.repository.models.ProductReview
 
@@ -48,12 +49,156 @@ private val productList = listOf(
     )
 )
 
+
 private val productReviewQA = listOf(
     ProductReview("Does the product match description?"),
     ProductReview("Delivered on time"),
     ProductReview("Something you want to repair?")
 )
 
+private val arrivingDepartmentList = listOf(
+    Department(
+        android.R.drawable.star_on,
+        1002,
+        "Deli",
+        5
+    ), Department(
+        android.R.drawable.star_on,
+        1002,
+        "Bakery",
+        4
+    ), Department(
+        android.R.drawable.star_on,
+        1003,
+        "Drugs",
+        7
+    ), Department(
+        android.R.drawable.star_on,
+        1004,
+        "Meat",
+        10
+    ), Department(
+        android.R.drawable.star_on,
+        1005,
+        "Grocery",
+        0
+    ), Department(
+        android.R.drawable.star_on,
+        1006,
+        "Cosmetics",
+        8
+    ), Department(
+        android.R.drawable.star_on,
+        1006,
+        "Body care",
+        2
+    ), Department(
+        android.R.drawable.star_on,
+        1007,
+        "Garments",
+        9
+    ), Department(
+        android.R.drawable.star_on,
+        1008,
+        "Home Decor",
+        5
+    ), Department(
+        android.R.drawable.star_on,
+        1009,
+        "Bathroom",
+        4
+    ), Department(
+        android.R.drawable.star_on,
+        1010,
+        "Wardrobe",
+        1
+    ), Department(
+        android.R.drawable.star_on,
+        1011,
+        "Kitchen",
+        2
+    ), Department(
+        android.R.drawable.star_on,
+        1012,
+        "Cleaning",
+        8
+    )
+)
+
+private val reviewDepartmentList = listOf(
+    Department(
+        android.R.drawable.star_on,
+        1002,
+        "Deli",
+        review = 5
+    ), Department(
+        android.R.drawable.star_on,
+        1002,
+        "Bakery",
+        review = 4
+    ), Department(
+        android.R.drawable.star_on,
+        1003,
+        "Drugs",
+        review = 7
+    ), Department(
+        android.R.drawable.star_on,
+        1004,
+        "Meat",
+        review = 10
+    ), Department(
+        android.R.drawable.star_on,
+        1005,
+        "Grocery",
+        review = 0
+    ), Department(
+        android.R.drawable.star_on,
+        1006,
+        "Cosmetics",
+        review = 8
+    ), Department(
+        android.R.drawable.star_on,
+        1006,
+        "Body care",
+        review = 2
+    ), Department(
+        android.R.drawable.star_on,
+        1007,
+        "Garments",
+        review = 9
+    ), Department(
+        android.R.drawable.star_on,
+        1008,
+        "Home Decor",
+        review = 5
+    ), Department(
+        android.R.drawable.star_on,
+        1009,
+        "Bathroom",
+        review = 4
+    ), Department(
+        android.R.drawable.star_on,
+        1010,
+        "Wardrobe",
+        review = 1
+    ), Department(
+        android.R.drawable.star_on,
+        1011,
+        "Kitchen",
+        review = 2
+    ), Department(
+        android.R.drawable.star_on,
+        1012,
+        "Cleaning",
+        review = 8
+    )
+)
+
+
 fun getProductList() = productList
 
 fun getProductReviewQA() = productReviewQA
+
+fun getArrivingDepartmentList() = arrivingDepartmentList
+
+fun getReviewDepartmentList() = reviewDepartmentList

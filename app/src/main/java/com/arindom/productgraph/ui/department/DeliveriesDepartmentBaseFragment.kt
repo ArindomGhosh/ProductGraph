@@ -18,7 +18,6 @@ abstract class DeliveriesDepartmentBaseFragment : Fragment() {
             DepartmentListAdapter(
                 it,
                 emptyList(),
-                mDepartmentViewModel.departmentSelectEventListener
             )
         }
     }

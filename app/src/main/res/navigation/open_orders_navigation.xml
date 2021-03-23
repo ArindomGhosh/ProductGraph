@@ -5,10 +5,12 @@
     android:id="@+id/open_order_navigation"
     android:label="nav_product"
     app:startDestination="@id/deliveriesReviewDepartmentList">
+
+
     <fragment
-        android:id="@+id/nav_product_list"
-        android:name="com.arindom.productgraph.ui.productlist.ProductListFragment"
-        android:label="Product List"
+        android:id="@+id/openOrderProductList"
+        android:name="com.arindom.productgraph.ui.productlist.OpenOrderProductList"
+        android:label="OpenOrderProductList"
         tools:layout="@layout/fragment_product_list">
         <action
             android:id="@+id/action_nav_product_list_to_productDetailsFragment"
@@ -23,6 +25,7 @@
             app:destination="@id/productFilterFragment" />
 
     </fragment>
+
     <fragment
         android:id="@+id/productDetailsFragment"
         android:name="com.arindom.productgraph.ui.ProductDetailsFragment"
@@ -46,7 +49,7 @@
         tools:layout="@layout/fragment_product_list_filter">
         <action
             android:id="@+id/action_productFilterFragment_to_nav_product_list"
-            app:destination="@id/nav_product_list" />
+            app:destination="@id/openOrderProductList" />
     </fragment>
     <fragment
         android:id="@+id/productReviewFragment"
@@ -69,7 +72,8 @@
         tools:layout="@layout/fragment_departments">
         <action
             android:id="@+id/action_deliveriesOpenDepartmentList_to_nav_product_list"
-            app:destination="@id/nav_product_list" />
+            app:destination="@id/openOrderProductList" />
     </fragment>
+
 
 </navigation>

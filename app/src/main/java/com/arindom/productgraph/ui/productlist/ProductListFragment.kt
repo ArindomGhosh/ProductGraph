@@ -14,8 +14,8 @@ import com.arindom.productgraph.ui.MainActivity
 import com.arindom.productgraph.ui.ProductListViewModel
 import com.arindom.productgraph.ui.productlist.adapter.ProductListAdapter
 
-class ProductListFragment : Fragment(), ProductListAdapter.OnItemClickListener {
-    private lateinit var mBinding: FragmentProductListBinding
+abstract class ProductListFragment : Fragment(), ProductListAdapter.OnItemClickListener {
+    protected lateinit var mBinding: FragmentProductListBinding
     private val mProductListAdapter = ProductListAdapter(emptyList(), this)
     private val mProductListViewModel by activityViewModels<ProductListViewModel>()
     override fun onCreateView(
@@ -32,21 +32,11 @@ class ProductListFragment : Fragment(), ProductListAdapter.OnItemClickListener {
         (activity as MainActivity).configureToolbar("Product List")
         setUpProductList()
         mProductListAdapter.updateList(mProductListViewModel.getFilteredProductList())
-        mBinding.fabFilterList.setOnClickListener {
-            mBinding.root.findNavController()
-                .navigate(ProductListFragmentDirections.actionNavProductListToProductFilterFragment())
-        }
     }
 
     private fun setUpProductList() {
         mBinding.rvProductList.layoutManager = LinearLayoutManager(this.context)
         mBinding.rvProductList.adapter = mProductListAdapter
-    }
-
-    override fun onClicked(product: Product) {
-        val action =
-            ProductListFragmentDirections.actionNavProductListToProductDetailsFragment(product)
-        mBinding.root.findNavController().navigate(action)
     }
 
     override fun onDestroyView() {

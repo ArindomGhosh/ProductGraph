@@ -12,7 +12,7 @@ class DeliveriesOpenDepartmentList : DeliveriesDepartmentBaseFragment() {
         //api call to get the list
         (activity as MainActivity).configureToolbar("Department List")
         mDepartmentListAdapter?.updateDepartment(getReviewDepartmentList())
-        mDepartmentViewModel.departmentSelectEventListener.observe(viewLifecycleOwner) {
+        mDepartmentListAdapter?.setOnDepartSelectedListener {
             mBinding.root
                 .findNavController()
                 .navigate(DeliveriesOpenDepartmentListDirections.actionDeliveriesOpenDepartmentListToNavProductList())

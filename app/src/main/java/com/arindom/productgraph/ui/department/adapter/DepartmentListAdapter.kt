@@ -6,14 +6,17 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.arindom.productgraph.databinding.ItemDepartmentBinding
 import com.arindom.productgraph.repository.models.Department
-import com.arindom.productgraph.ui.EventListeners
 
 class DepartmentListAdapter(
     private val mContext: Context,
     private var departmentList: List<Department>,
-    private val departmentSelectedListener: EventListeners<Department>
-) :
-    RecyclerView.Adapter<DepartmentListAdapter.DepartmentViewHolder>() {
+    private var onDepartmentSelectedListener: ((Department) -> Unit)? = null
+) : RecyclerView.Adapter<DepartmentListAdapter.DepartmentViewHolder>() {
+
+    fun setOnDepartSelectedListener(onDepartmentSelectedListener: ((Department) -> Unit)) {
+        this.onDepartmentSelectedListener = onDepartmentSelectedListener
+    }
+
     inner class DepartmentViewHolder(private val mBinding: ItemDepartmentBinding) :
         RecyclerView.ViewHolder(mBinding.root) {
         fun bind(department: Department) {
@@ -25,7 +28,7 @@ class DepartmentListAdapter(
                     department.review != 0 -> "${department.review} orders available for review"
                     else -> "no deliveries"
                 }
-            mBinding.root.setOnClickListener { departmentSelectedListener.postValue(department) }
+            mBinding.root.setOnClickListener { onDepartmentSelectedListener?.invoke(department) }
         }
     }
 

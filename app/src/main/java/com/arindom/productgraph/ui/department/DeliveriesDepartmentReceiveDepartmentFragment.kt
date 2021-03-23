@@ -13,8 +13,9 @@ class DeliveriesDepartmentReceiveDepartmentFragment : DeliveriesDepartmentBaseFr
         //api call to get the list
         (activity as MainActivity).configureToolbar("Department List")
         mDepartmentListAdapter?.updateDepartment(getArrivingDepartmentList())
-        mDepartmentViewModel.departmentSelectEventListener.observe(viewLifecycleOwner) {
-            mBinding.root.findNavController().navigate(R.id.action_global_deliveriesHome)
+        mDepartmentListAdapter?.setOnDepartSelectedListener {
+            mBinding.root.findNavController().navigate(DeliveriesDepartmentReceiveDepartmentFragmentDirections
+                    .actionDeliveriesArrivingDepartmentListToArrivingOrderProductList())
         }
     }
 }

@@ -9,5 +9,17 @@
         android:id="@+id/deliveriesArrivingDepartmentList"
         android:name="com.arindom.productgraph.ui.department.DeliveriesDepartmentReceiveDepartmentFragment"
         android:label="DeliveriesArrivingDepartmentList"
-        tools:layout="@layout/fragment_departments" />
+        tools:layout="@layout/fragment_departments">
+
+        <action
+            android:id="@+id/action_deliveriesArrivingDepartmentList_to_arrivingOrderProductList"
+            app:destination="@id/arrivingOrderProductList" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/arrivingOrderProductList"
+        android:name="com.arindom.productgraph.ui.productlist.ArrivingOrderProductList"
+        android:label="ArrivingOrderProductList"
+        tools:layout="@layout/fragment_product_list"/>
+
 </navigation>
